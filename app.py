@@ -1,8 +1,11 @@
 from flask import Flask, jsonify, request
 from  flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
+
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"]= "sqlite:///site.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= False
@@ -29,13 +32,21 @@ def post_vip():
     new_vip = VIP(first_name, last_name)
     db.session.add(new_vip)
     db.session.commit()
-    return jsonify({"msg": "A new VIP has been added to our database"})
+    return vip_schema.jsonify(new_vip)
+    # return jsonify({"msg": "A new VIP has been added to our database"})
+
+class VIPSchema(ma.Schema):
+    class Meta:
+        fields = ("id", "first_name", "last_name")
+
+vip_schema = VIPSchema()
+vips_schema = VIPSchema(many=True)
 
 @app.route("/hollywood", methods = ["GET"])
 def get_vips():
     vips = VIP.query.all()
-    for vip in vips:
-        return jsonify(vip)
+    outcome = vips_schema.dump(vips)
+    return jsonify(outcome)
 
 
 
