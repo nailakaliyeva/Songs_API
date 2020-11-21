@@ -49,6 +49,22 @@ def get_vips():
     return jsonify(outcome)
 
 
+@app.route("/delete-<int:id>", methods = ["DELETE"])
+def delete_vips(id):
+    id = VIP.query.get(id)
+    db.session.delete(id)
+    db.session.commit()
+    return jsonify({"msg": "The VIP has been deleted"})
+
+@app.route("/update-<int:id>", methods = ["PUT"])
+def update_vips(id):
+    vip_person = VIP.query.get(id)
+    body = request.get_json()
+    vip_person.first_name = body["first_name"]
+    vip_person.last_name = body["last_name"]
+    db.session.commit()
+    return vip_schema.jsonify(vip_person)
+
 
 
 
