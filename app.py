@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from  flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
@@ -11,7 +11,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= False
 
 @app.route("/")
 def greeting():
-    return jsonify({"msg": "Hello, this is a greeting page"})
+    return render_template("index.html")
 
 class Vip(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -111,7 +111,7 @@ def delete_songss(id):
     db.session.commit()
     return jsonify({"msg": "The song has been deleted"})
 
-@app.route("/singers/update<int:id>", methods = ["PUT"])
+@app.route("/singers/update-<int:id>", methods = ["PUT"])
 def update_vips(id):
     vip_person = Vip.query.get(id)
     body = request.get_json()
