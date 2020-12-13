@@ -27,7 +27,7 @@ Here is the body to ***POST*** information about a ***SONG*** in JSON format usi
 
 ⚠️ Keep in mind when writing lyrics that JSON does not allow real line-breaks. You need to replace all the line breaks with \n.
 
-Also, if you don't know your "singer_id", just go to **/singers** endpoint to look it up
+⚠️ Also, if you don't know your "singer_id", just go to **/singers** endpoint to look it up
 
 {
 
