@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from  flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
@@ -11,7 +11,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= False
 
 @app.route("/")
 def greeting():
-    return jsonify({"msg": "Hello, this is a greeting page"})
+    return render_template("index.html")
 
 class Vip(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -97,21 +97,21 @@ def get_songs():
     return jsonify(outcome)
 
 
-@app.route("/delete-singer-<int:id>", methods = ["DELETE"])
+@app.route("/singers/delete-<int:id>", methods = ["DELETE"])
 def delete_vips(id):
     id = Vip.query.get(id)
     db.session.delete(id)
     db.session.commit()
     return jsonify({"msg": "The singer has been deleted"})
 
-@app.route("/delete-song-<int:id>", methods = ["DELETE"])
+@app.route("/songs/delete-<int:id>", methods = ["DELETE"])
 def delete_songss(id):
     id = Song.query.get(id)
     db.session.delete(id)
     db.session.commit()
     return jsonify({"msg": "The song has been deleted"})
 
-@app.route("/update-singer<int:id>", methods = ["PUT"])
+@app.route("/singers/update-<int:id>", methods = ["PUT"])
 def update_vips(id):
     vip_person = Vip.query.get(id)
     body = request.get_json()
@@ -125,7 +125,7 @@ def update_vips(id):
     db.session.commit()
     return vip_schema.jsonify(vip_person)
 
-@app.route("/update-song-<int:id>", methods = ["PUT"])
+@app.route("/songs/update-<int:id>", methods = ["PUT"])
 def update_songs(id):
     the_song= Song.query.get(id)
     body = request.get_json()
