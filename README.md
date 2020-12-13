@@ -46,7 +46,7 @@ Here is the body to ***POST*** information about a ***SONG*** in JSON format usi
 To ***GET*** information about posted singers and songs use the same endpoints
 
 To ***UPDATE*** posted singers or songs use the same JSON body as shown above and use ***PUT*** method in POSTMAN using **/singers/update-#** or **/songs/update-#**
-endpoint, where you put your singer's or songs's id instead of the #
+endpoint, where you put your singer's or song's id instead of the #
 
 To ***DELETE*** posted singers or songs use ***DELETE*** method in POSTMAN using **/singers/delete-#** or **/songs/delete-#** endpoint, 
-where you put your singer's or songs's id instead of the #
+where you put your singer's or song's id instead of the #
