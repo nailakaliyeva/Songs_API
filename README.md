@@ -45,7 +45,7 @@ Also, if you don't know your "singer_id", just go to **/singers** endpoint to lo
 
 To ***GET*** information about posted singers and songs use the same endpoints
 
-To ***UPDATE*** posted singers or songs use the same JSON body as shown above and use *PUT* method in POSTMAN using **/singers/update-#** or **/songs/update-#**
+To ***UPDATE*** posted singers or songs use the same JSON body as shown above and use ***PUT*** method in POSTMAN using **/singers/update-#** or **/songs/update-#**
 endpoint, where you put your singer's or songs's id instead of the #
 
 To ***DELETE*** posted singers or songs use ***DELETE*** method in POSTMAN using **/singers/delete-#** or **/songs/delete-#** endpoint, 
