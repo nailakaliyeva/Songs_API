@@ -121,7 +121,6 @@ def update_vips(id):
     vip_person.ethnicity = body["ethnicity"]
     vip_person.religion = body["religion"]
     vip_person.race = body["race"]
-    vip_person.songs = body["songs"]
     db.session.commit()
     return vip_schema.jsonify(vip_person)
 
