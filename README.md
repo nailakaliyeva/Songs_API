@@ -1,6 +1,34 @@
+
 # Welcome to SONGS API
 
 This is a simple API that will let you ***GET***, ***UPDATE***, ***POST*** and ***DELETE*** songs and their singers to/from our API
+
+To run the API make sure you have pipenv installed
+
+![songs_one_to_many_API](https://user-images.githubusercontent.com/42359973/102143003-48c32400-3e31-11eb-9139-8b95cb1d4f48.gif)
+
+
+Then activate your virtual environment by running:
+
+```
+pipenv shell
+```
+
+Then install all the packages and/or dependencies needed from Pipfile by running:
+
+```
+pipenv install
+```
+
+Once it's done installing, run the API with this command:
+
+```
+pipenv run python app.py
+```
+
+where *app.py* is the name of the file
+
+⚠️ Make sure you change port mode from private to public when using the API in Gitpod
 
 The API is only meant for educational purposes and requires information that already exists in the Internet
 
