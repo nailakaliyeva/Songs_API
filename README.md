@@ -3,7 +3,7 @@
 
 This is a simple API that will let you ***GET***, ***UPDATE***, ***POST*** and ***DELETE*** songs and their singers to/from our API
 
-To run the API make sure you have pipenv installed
+To run the API make sure you have pipenv installed:
 
 ![songs_one_to_many_API](https://user-images.githubusercontent.com/42359973/102143003-48c32400-3e31-11eb-9139-8b95cb1d4f48.gif)
 
